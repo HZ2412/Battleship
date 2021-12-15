@@ -3,4 +3,5 @@
 
 Components
 =====
-*
+* Four type of ships: Battleship, Cruiser, Destroyer, and Submarine
+
