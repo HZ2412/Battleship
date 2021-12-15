@@ -18,7 +18,7 @@ public class Ocean {
 
 
 	public Ocean(){
-		//initialize each location to an empty sea in the construtor 
+		//initialize each location to an empty sea in the constructor 
 		for(int i = 0; i < ships.length; i++) {
 			for(int j = 0; j < ships[i].length; j++) {
 				ships[i][j] = new EmptySea();
