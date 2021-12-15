@@ -16,13 +16,13 @@ Demo
 =====
 
 Hitting empty ocean
-![alt text](img/miss.png?raw=true)
+![alt text](img/miss.PNG?raw=true)
 
 Hitting a ship in the ocean
-![alt text](img/hit.png?raw=true)
+![alt text](img/hit.PNG?raw=true)
 
 Sinking a ship
-![alt text](img/sank.png?raw=true)
+![alt text](img/sank.PNG?raw=true)
 
 Hitting a sunken ship
-![alt text](img/sunken.png?raw=true)
+![alt text](img/sunken.PNG?raw=true)
