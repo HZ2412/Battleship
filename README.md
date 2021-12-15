@@ -32,3 +32,8 @@ Hitting the last part of a cruiser (2,0)
 Hitting the same cruiser again (2,0)
 
 ![alt text](img/sunken.PNG?raw=true)
+
+
+Game over (a different run) - and I'm simply terrible
+
+![alt text](img/gameover.PNG?raw=true)
