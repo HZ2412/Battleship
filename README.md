@@ -15,18 +15,20 @@ Gameplay
 Demo
 =====
 
-Hitting empty ocean
-
-![alt text](img/miss.PNG?raw=true)
-
-Hitting a ship in the ocean
+Landing a hit on a ship at (0,0)
 
 ![alt text](img/hit.PNG?raw=true)
 
-Sinking a ship
+
+Hitting empty ocean at (1,1)
+
+![alt text](img/miss.PNG?raw=true)
+
+
+Hitting the last part of a cruiser (2,0)
 
 ![alt text](img/sank.PNG?raw=true)
 
-Hitting a sunken ship
+Hitting the same cruiser again (2,0)
 
 ![alt text](img/sunken.PNG?raw=true)
