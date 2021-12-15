@@ -109,7 +109,7 @@ public abstract class Ship {
 	
 	/**
 	 * I am not speaking Korean and I agree the naming could be improved
-	 * NOOBAE it stands for "Not Out Of Bound And Empty"
+	 * NooBaE it stands for "Not Out Of Bound And Empty"
 	 * this function is needed to make sure row, column pairs are within the range
 	 * This function is called for two purposes: 
 	 * 1. make sure the underlying grid is an empty ocean
@@ -119,7 +119,7 @@ public abstract class Ship {
 	 * @param ocean
 	 * @return
 	 */
-	public boolean NOOBAE(int row, int column, Ocean ocean) {
+	public boolean NooBaE(int row, int column, Ocean ocean) {
 		// first check if the r,c are in the grid
 		// they are, make sure an empty ocean in that location
 		if(row <= 9 && column <=9 && row >=0 && column >=0)
@@ -141,7 +141,7 @@ public abstract class Ship {
 	
 	/**
 	 * checks if the bow of the ship can be placed in the (row, column) location by calling 
-	 * Not Out Of Bound And Empty (NOOBAE) function on:
+	 * Not Out Of Bound And Empty (NooBaE) function on:
 	 * 1. the bow
 	 * 2. the body of the ship
 	 * 3. the "wall" -  squares surrounding the bow and body of the ship
@@ -159,29 +159,29 @@ public abstract class Ship {
 		// the wall is made up of 14 squares
 		if(this.getShipType() == "battleship" && horizontal) {
 			if(		// the bow
-					NOOBAE(row, column, ocean) && 
+					NooBaE(row, column, ocean) && 
 					// the three body
-					NOOBAE(row, column-1, ocean) && NOOBAE(row, column-2, ocean) && NOOBAE(row, column-3, ocean) &&
+					NooBaE(row, column-1, ocean) && NooBaE(row, column-2, ocean) && NooBaE(row, column-3, ocean) &&
 					// the square directly behind (left of) the tail and in front (right) of the bow
-					NOOBAE(row, column-4, ocean) &&	NOOBAE(row, column+1, ocean) &&
+					NooBaE(row, column-4, ocean) &&	NooBaE(row, column+1, ocean) &&
 					//the same row above (on the left of) the ship
-					NOOBAE(row-1, column, ocean) && NOOBAE(row-1, column-1, ocean) && NOOBAE(row-1, column-2, ocean) && 
-					NOOBAE(row-1, column-3, ocean) && NOOBAE(row-1, column-4, ocean) && NOOBAE(row-1, column+1, ocean) &&
+					NooBaE(row-1, column, ocean) && NooBaE(row-1, column-1, ocean) && NooBaE(row-1, column-2, ocean) && 
+					NooBaE(row-1, column-3, ocean) && NooBaE(row-1, column-4, ocean) && NooBaE(row-1, column+1, ocean) &&
 					//the same row below (on the right of) the ship
-					NOOBAE(row+1, column, ocean) && NOOBAE(row+1, column-1, ocean) && NOOBAE(row+1, column-2, ocean) && 
-					NOOBAE(row+1, column-3, ocean) && NOOBAE(row+1, column-4, ocean) && NOOBAE(row+1, column+1, ocean)) {
+					NooBaE(row+1, column, ocean) && NooBaE(row+1, column-1, ocean) && NooBaE(row+1, column-2, ocean) && 
+					NooBaE(row+1, column-3, ocean) && NooBaE(row+1, column-4, ocean) && NooBaE(row+1, column+1, ocean)) {
 					return true;
 			}}
 		
 		// similarly for not horizontal battleship, the walls surrounding the ship is vertical
 		if(this.getShipType() == "battleship" && !horizontal) {
-			if(NOOBAE(row, column, ocean) && 
-					NOOBAE(row+1, column, ocean) && NOOBAE(row-1, column, ocean) && NOOBAE(row-2, column, ocean) && 
-					NOOBAE(row-3, column, ocean) && NOOBAE(row-4, column, ocean) && NOOBAE(row, column-1, ocean) && 
-					NOOBAE(row+1, column-1, ocean) && NOOBAE(row-1, column-1, ocean) && NOOBAE(row-2, column-1, ocean) && 
-					NOOBAE(row-3, column-1, ocean) && NOOBAE(row-4, column-1, ocean) && NOOBAE(row, column+1, ocean) && 
-					NOOBAE(row+1, column+1, ocean) && NOOBAE(row-1, column+1, ocean) && NOOBAE(row-2, column+1, ocean) && 
-					NOOBAE(row-3, column+1, ocean) && NOOBAE(row-4, column+1, ocean)) {
+			if(NooBaE(row, column, ocean) && 
+					NooBaE(row+1, column, ocean) && NooBaE(row-1, column, ocean) && NooBaE(row-2, column, ocean) && 
+					NooBaE(row-3, column, ocean) && NooBaE(row-4, column, ocean) && NooBaE(row, column-1, ocean) && 
+					NooBaE(row+1, column-1, ocean) && NooBaE(row-1, column-1, ocean) && NooBaE(row-2, column-1, ocean) && 
+					NooBaE(row-3, column-1, ocean) && NooBaE(row-4, column-1, ocean) && NooBaE(row, column+1, ocean) && 
+					NooBaE(row+1, column+1, ocean) && NooBaE(row-1, column+1, ocean) && NooBaE(row-2, column+1, ocean) && 
+					NooBaE(row-3, column+1, ocean) && NooBaE(row-4, column+1, ocean)) {
 					return true;
 			}}
 		
@@ -189,52 +189,52 @@ public abstract class Ship {
 		// same as the battleship except the length of the ship and the wall are both 1 less
 		// the wall is made up of 12 squares
 		if(this.getShipType() == "cruiser" && horizontal) {
-			if(NOOBAE(row, column, ocean) && 
-					NOOBAE(row, column-1, ocean) && NOOBAE(row, column-2, ocean) && NOOBAE(row, column-3, ocean) && 
-					NOOBAE(row, column+1, ocean) && NOOBAE(row-1, column, ocean) && NOOBAE(row-1, column-1, ocean) && 
-					NOOBAE(row-1, column-2, ocean) && NOOBAE(row-1, column-3, ocean) && NOOBAE(row-1, column+1, ocean) &&
-					NOOBAE(row+1, column, ocean) && NOOBAE(row+1, column-1, ocean) && NOOBAE(row+1, column-2, ocean) && 
-					NOOBAE(row+1, column-3, ocean) && NOOBAE(row+1, column+1, ocean)) {
+			if(NooBaE(row, column, ocean) && 
+					NooBaE(row, column-1, ocean) && NooBaE(row, column-2, ocean) && NooBaE(row, column-3, ocean) && 
+					NooBaE(row, column+1, ocean) && NooBaE(row-1, column, ocean) && NooBaE(row-1, column-1, ocean) && 
+					NooBaE(row-1, column-2, ocean) && NooBaE(row-1, column-3, ocean) && NooBaE(row-1, column+1, ocean) &&
+					NooBaE(row+1, column, ocean) && NooBaE(row+1, column-1, ocean) && NooBaE(row+1, column-2, ocean) && 
+					NooBaE(row+1, column-3, ocean) && NooBaE(row+1, column+1, ocean)) {
 					return true;
 			}}
 		
 		if(this.getShipType() == "cruiser" && !horizontal) {
-			if(NOOBAE(row, column, ocean) && 
-					NOOBAE(row+1, column, ocean) && NOOBAE(row-1, column, ocean) && NOOBAE(row-2, column, ocean) && 
-					NOOBAE(row-3, column, ocean) && NOOBAE(row, column-1, ocean) && NOOBAE(row+1, column-1, ocean) && 
-					NOOBAE(row-1, column-1, ocean) && NOOBAE(row-2, column-1, ocean) && NOOBAE(row-3, column-1, ocean) &&
-					NOOBAE(row, column+1, ocean) && NOOBAE(row+1, column+1, ocean) && NOOBAE(row-1, column+1, ocean) && 
-					NOOBAE(row-2, column+1, ocean) && NOOBAE(row-3, column+1, ocean)) {
+			if(NooBaE(row, column, ocean) && 
+					NooBaE(row+1, column, ocean) && NooBaE(row-1, column, ocean) && NooBaE(row-2, column, ocean) && 
+					NooBaE(row-3, column, ocean) && NooBaE(row, column-1, ocean) && NooBaE(row+1, column-1, ocean) && 
+					NooBaE(row-1, column-1, ocean) && NooBaE(row-2, column-1, ocean) && NooBaE(row-3, column-1, ocean) &&
+					NooBaE(row, column+1, ocean) && NooBaE(row+1, column+1, ocean) && NooBaE(row-1, column+1, ocean) && 
+					NooBaE(row-2, column+1, ocean) && NooBaE(row-3, column+1, ocean)) {
 					return true;
 			}}
 		
 		// shed off another length from the ship and surrounding walls. 10 squares make up the wall
 		if(this.getShipType() == "destroyer" && horizontal) {
-			if(NOOBAE(row, column, ocean) &&
-					NOOBAE(row, column-1, ocean) && NOOBAE(row, column-2, ocean) && NOOBAE(row, column+1, ocean) &&
-					NOOBAE(row-1, column, ocean) && NOOBAE(row-1, column-1, ocean) && NOOBAE(row-1, column-2, ocean) && 
-					NOOBAE(row-1, column+1, ocean) && NOOBAE(row+1, column, ocean) && NOOBAE(row+1, column-1, ocean) && 
-					NOOBAE(row+1, column-2, ocean) && NOOBAE(row+1, column+1, ocean)) {
+			if(NooBaE(row, column, ocean) &&
+					NooBaE(row, column-1, ocean) && NooBaE(row, column-2, ocean) && NooBaE(row, column+1, ocean) &&
+					NooBaE(row-1, column, ocean) && NooBaE(row-1, column-1, ocean) && NooBaE(row-1, column-2, ocean) && 
+					NooBaE(row-1, column+1, ocean) && NooBaE(row+1, column, ocean) && NooBaE(row+1, column-1, ocean) && 
+					NooBaE(row+1, column-2, ocean) && NooBaE(row+1, column+1, ocean)) {
 					return true;
 			}}
 		
 		if(this.getShipType() == "destroyer" && !horizontal) {
-			if(NOOBAE(row, column, ocean) && 
-					NOOBAE(row+1, column, ocean) && NOOBAE(row-1, column, ocean) && NOOBAE(row-2, column, ocean) &&
-					 NOOBAE(row, column-1, ocean) && NOOBAE(row+1, column-1, ocean) && NOOBAE(row-1, column-1, ocean) && 
-					 NOOBAE(row-2, column-1, ocean) && NOOBAE(row, column+1, ocean) && NOOBAE(row+1, column+1, ocean) && 
-					 NOOBAE(row-1, column+1, ocean) && NOOBAE(row-2, column+1, ocean)) {
+			if(NooBaE(row, column, ocean) && 
+					NooBaE(row+1, column, ocean) && NooBaE(row-1, column, ocean) && NooBaE(row-2, column, ocean) &&
+					 NooBaE(row, column-1, ocean) && NooBaE(row+1, column-1, ocean) && NooBaE(row-1, column-1, ocean) && 
+					 NooBaE(row-2, column-1, ocean) && NooBaE(row, column+1, ocean) && NooBaE(row+1, column+1, ocean) && 
+					 NooBaE(row-1, column+1, ocean) && NooBaE(row-2, column+1, ocean)) {
 					return true;
 			}}
 		
 
 		// submarine does not care if it's horizontal and only check the 8 squares surrounding the bow
 		if(this.getShipType() == "submarine") {
-			if(NOOBAE(row, column, ocean) 
-					&& NOOBAE(row, column-1, ocean)  && NOOBAE(row, column+1, ocean)
-					&& NOOBAE(row-1, column, ocean) && NOOBAE(row+1, column, ocean)
-					&& NOOBAE(row-1, column-1, ocean) && NOOBAE(row+1, column+1, ocean)
-					&& NOOBAE(row-1, column+1, ocean) && NOOBAE(row+1, column-1, ocean))   {
+			if(NooBaE(row, column, ocean) 
+					&& NooBaE(row, column-1, ocean)  && NooBaE(row, column+1, ocean)
+					&& NooBaE(row-1, column, ocean) && NooBaE(row+1, column, ocean)
+					&& NooBaE(row-1, column-1, ocean) && NooBaE(row+1, column+1, ocean)
+					&& NooBaE(row-1, column+1, ocean) && NooBaE(row+1, column-1, ocean))   {
 					return true;
 			}}
 		
@@ -314,7 +314,7 @@ public abstract class Ship {
 		int bowC = this.getBowColumn();
 		
 		// if the ship is already sunk before hitting, return false
-		if(this.isSunk()) {
+		if(this.isSunken()) {
 			return false;
 		}
 		
@@ -344,7 +344,7 @@ public abstract class Ship {
 	 * returns the true if all elements of the hit array is true
 	 * @return
 	 */
-	boolean isSunk() {
+	boolean isSunken() {
 		for(int i = 0; i<this.hit.length; i++)
 		{
 			if(!this.hit[i]) {
@@ -359,7 +359,7 @@ public abstract class Ship {
 	 * this method returns the character "s" or "x", based on whether it's sunk
 	 */
 	public String toString() {
-		if(this.isSunk()) {
+		if(this.isSunken()) {
 			return "s";
 		}else {
 			return "x";

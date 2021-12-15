@@ -30,7 +30,7 @@ public class EmptySea extends Ship{
 	/*
 	 * empty sea cannot be sunk
 	 */
-	boolean isSunk() {
+	boolean isSunken() {
 		return false;
 	}
 	

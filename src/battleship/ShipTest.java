@@ -468,9 +468,9 @@ class ShipTest {
 		boolean horizontal = true;
 		submarine.placeShipAt(row, column, horizontal, ocean);
 		
-		assertFalse(submarine.isSunk());
+		assertFalse(submarine.isSunken());
 		assertFalse(submarine.shootAt(5, 2));
-		assertFalse(submarine.isSunk());
+		assertFalse(submarine.isSunken());
 		
 		// case 2
 		Ship battleship = new Battleship();
@@ -479,15 +479,15 @@ class ShipTest {
 		horizontal = false;
 		battleship.placeShipAt(row, column, horizontal, ocean);
 		// shooting the battleship one by one and checking whether it's sunk
-		assertFalse(battleship.isSunk());
+		assertFalse(battleship.isSunken());
 		assertTrue(battleship.shootAt(9, 9));
-		assertFalse(battleship.isSunk());
+		assertFalse(battleship.isSunken());
 		assertTrue(battleship.shootAt(8, 9));
-		assertFalse(battleship.isSunk());
+		assertFalse(battleship.isSunken());
 		assertTrue(battleship.shootAt(7, 9));
-		assertFalse(battleship.isSunk());
+		assertFalse(battleship.isSunken());
 		assertTrue(battleship.shootAt(6, 9));
-		assertTrue(battleship.isSunk());
+		assertTrue(battleship.isSunken());
 		
 		// case 3
 		Ship emptySea = new EmptySea();
@@ -496,9 +496,9 @@ class ShipTest {
 		horizontal = false;
 		emptySea.placeShipAt(row, column, horizontal, ocean);
 		// shooting the empty sea
-		assertFalse(emptySea.isSunk());
+		assertFalse(emptySea.isSunken());
 		assertFalse(emptySea.shootAt(5, 5));
-		assertFalse(emptySea.isSunk());
+		assertFalse(emptySea.isSunken());
 		
 		
 	}

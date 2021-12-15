@@ -25,18 +25,14 @@ public class BattleshipGame {
 			//print the ocean
 			oc.print();
 			// ask for row column pair for input
-			System.out.println("Enter row column as 'row, column'.");
+			System.out.println("Enter \"row, column\".");
 			// create an integer array to store the values parsed
 			int[] coordinates = new int[2];
 			// parse the line entered separated by comma and return true/false for successfully parsed
 			if(parseCoordinates(sc, coordinates)) {
 				// if successfully parsed inputs, call shootAt to see if anything was hit
 				// the shootAt method calls shootAt in the ship class, which updates the hit array
-				if(oc.shootAt(coordinates[0], coordinates[1])){
-					System.out.println("Hit.");
-				}else {
-					System.out.println("Miss.");
-				}
+				oc.shootAt(coordinates[0], coordinates[1]);
 			}	
 		}
 				// after the game is over, print the ocean again and some statistics

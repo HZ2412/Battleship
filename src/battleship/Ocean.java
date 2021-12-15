@@ -53,16 +53,16 @@ public class Ocean {
 	}
 	
 	/**
-	 * returns the number of ships sunk
-	 * @return number of ships sunk
+	 * returns the number of ships sunken
+	 * @return number of ships sunken
 	 */
 	int getShipsSunk() {
 		return shipSunk;
 	}
 	
 	/**
-	 * returns true if all ships have been sunk
-	 * @return boolean whether all ships have been sunk
+	 * returns true if all ships have been sunken
+	 * @return boolean whether all ships have been sunken
 	 */
 	boolean isGameOver() {
 		if(this.shipSunk == TotalShipCount) {
@@ -266,10 +266,12 @@ public class Ocean {
 		//if it's empty ocean update the hit array and done
 		if(tempS.getShipType()== "empty") {
 			tempS.getHit()[0] = true;
+			System.out.println("Miss.");
 			return false;
 
-		// if the ship is sunk, return false
-		}else if (tempS.isSunk()) {
+		// if the ship is sunken, return false
+		}else if (tempS.isSunken()) {
+			System.out.println("You are hitting a sunken ship.");
 			return false;
 
 		// we are here if it's a ship and hasn't been sunk
@@ -278,11 +280,15 @@ public class Ocean {
 			this.hitCount++;
 			
 			// call the shootAt method in the Ship class
-			tempS.shootAt(row, column);
+			if(tempS.shootAt(row, column)){
+				System.out.println("Hit.");
+			}else {
+				System.out.println("Miss.");
+			}
 			
 			// record if the ship is sunk after calling shootAt from Ship class and print a message
-			if(tempS.isSunk()) {
-				System.out.println("You just sunk a "+ tempS.getShipType());
+			if(tempS.isSunken()) {
+				System.out.println("You just sank a "+ tempS.getShipType());
 				shipSunk++;
 				}
 			return true;
